@@ -13,7 +13,7 @@ The circuit requires a minimum of components. Most of the capacitors can be omit
 The inputs of the system are the voltage from the slider of the speed potentiometer (with linear characteristics) and the dot and dash signals from the manipulator. The outputs of the system are the 800 Hz tone signals and the keying signal active in state 0. Treating the keying output as an open collector system, it should be remembered that when the "key is raised" the voltage on it should not be higher than the voltage supplying the key.
 
 ## 800Hz tone generation
-Procesor ATTiny działa z wykorzystaniem wewnętrznego zegara 8MHz. Do generowania tonu 800Hz wykorzystuje się ten zegar oraz przerwanie od licznika T0 wstępnie ustawionego na wartość 178. Zegar 8000000Hz dzielony jest początkowo przez wewnętrzne podzielniki 2 oraz 64 a przerwanie od przepełnienia tego licznika pojawia się dodatkowo co (256-178)=78 taktów zegara. Daje to w sumie 8000000/2/64/78 -> około 800Hz na wyjściu tonu.
+The ATTiny processor operates using an internal 8MHz clock. This clock and an interrupt from the T0 counter initially set to 178 are used to generate the 800Hz tone. The 8000000Hz clock is initially divided by internal dividers 2 and 64, and an interrupt from this counter overflow occurs additionally every (256-178)=78 clock cycles. This gives a total of 8000000/2/64/78 -> about 800Hz at the tone output.
 
 ## Programming the system
 The key layout was coded in the original Bascom environment using an ISP programmer.
